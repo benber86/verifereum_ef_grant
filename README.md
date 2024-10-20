@@ -69,7 +69,7 @@
 
 *For example, do you have an MVP? Please describe its functionality and limitations and provide a link to it here.*
 
-> I have already started working on a formal model of the EVM in HOL4, available at https://github.com/verifereum/verifereum. While not fully complete, the model is executable $\color{red}{\textbf{(is it already?)}}$ and currently passes some tests from the Ethereum Test Set (https://github.com/ethereum/tests). I have also started working on a definitional interpreter for Vyper by formalizing the language's Abstract Syntax Tree (AST) at https://github.com/xrchz/vyper-hol/tree/main. While still far from complete, the current formalization covers basic types, expressions, and control flow constructs.
+> Verifereum already has a basic formal model of the EVM in HOL4, available at https://github.com/verifereum/verifereum. While not fully complete, the model is executable $\color{red}{\textbf{(is it already?)}}$ and currently passes some $\color{red}{\textbf{(proportion?)}}$ tests from the Ethereum Test Set (https://github.com/ethereum/tests). Work towards a definitional interpreter targeting the Vyper compiler has also started by formalizing the language's Abstract Syntax Tree (AST) at https://github.com/xrchz/vyper-hol/tree/main. The current formalization is still at an early stage but covers basic types, expressions, and control flow constructs.
 
 
 ### What problem(s) are being solved by within the scope of the grant?*
@@ -144,7 +144,7 @@
 
 Smart contract security is absolutely paramount to Ethereum where 70 million contracts secure hundred of billions of dollars of value. The blockchain audit industry, currently worth $3b USD is expected to grow tenfold over the next 5 years (https://www.marketsandmarkets.com/PressReleases/blockchain-security.asp), signalling the tremendous demand for rigorous scrutiny of on-chain apps. By mathematically proving that a contract behaves exactly as expected relative to a clearly defined specification, formal verification offers the highest assurance of vulnerability-free code. 
 
-Despite the strong need and demand for higher level of safety and formal verification of smart contract applications and compilers, there is still a supply constraint due to a dearth of tooling, educational resources and qualified practicioners. Verifereum aims to provide 
+Despite the strong need and demand for higher level of safety and formal verification of smart contract applications and compilers, there is still a supply constraint due to a dearth of tooling, educational resources and qualified practicioners. Verifereum aims to provide a complete and well-documented framework for the formal verification of any Ethereum application while growing an active community of technical and non-technical contributors to foster the adoption of formal methods.
 
 
 ### How does your project differ from similar ones?*
@@ -153,15 +153,14 @@ Despite the strong need and demand for higher level of safety and formal verific
 
 There are many tools available to help Ethereum smart contract developers improve the security of their code. Tools for static analysis, fuzzing or mutation testing all provide additional assurance against bugs and vulnerabilities, but not at the level provided by formal verification. On the other hand, formal verification is more complex, labor-intensive and has comparatively less smart-contract specific tooling. There are verification tools such as Solidity's SMTChecker (https://docs.soliditylang.org/en/latest/smtchecker.html), solc-verify (https://github.com/SRI-CSL/solidity) or VeriSol (https://github.com/microsoft/verisol) but they work directly on a high level programming language and do not offer security guarantees against bugs introduced by the compiler. For a contract's binary to be formally verified, either its language's compiler itself must be formalized or the post-compilation binaries must be verified against an EVM specification.
 
-Most formal verification efforts so far have targeted the latter option. KEVM (https://ieeexplore.ieee.org/document/8429306) by Runtime Verification and EVM-Dafny (https://github.com/Consensys/evm-dafny) by Consensys both provide 
+Most formal verification efforts so far have targeted the latter option. KEVM (https://ieeexplore.ieee.org/document/8429306) by Runtime Verification and EVM-Dafny (https://github.com/Consensys/evm-dafny) by Consensys have been under development since 2018 and 2022 respectively and are currently the most widely used frameworks. Both provide executable formal specifications of the EVM that can be used to formally verify contracts at the bytecode level. More recently, EVM-Vale (https://link.springer.com/chapter/10.1007/978-981-97-0006-6_3) offered a formal model of the EVM in F*/Vale which could be used to formally verify bytecode programs. The authors, however, only worked with a subset of the EVM's semantics. Earlier projects tried to give formal specification in Isabelle/HOL (https://github.com/pirapira/ethereum-formal-verification-overview) and CoQ (https://arxiv.org/abs/1810.04828) but are not actively used or maintained. Work on a Lean model is under way (https://github.com/NethermindEth/EVMYulLean) but remains in infancy. 
 
-
-Some early attempts in Isabelle/HOL (https://github.com/pirapira/ethereum-formal-verification-overview) and CoQ (https://arxiv.org/abs/1810.04828) are not maintained anymore
+These approaches, however, all have their own limitations which Verifereum aims to overcome while offering a unique new contributions.
 
 
 There have been a few other attempts to draw up formal specifications of the EVM which can be use for verification, however not all are actively maintained or usable and those that are have their own limitations and drawbacks. Verifereum also targets a much wider scope for verification compared to currently available solutions. The two most advanced formal verification frameworks currently available also only target EVM bytecode verification, 
 
-- More recently, EVM-Vale (https://link.springer.com/chapter/10.1007/978-981-97-0006-6_3) offered a formal model of the EVM in F*/Vale which could be used to formally verify bytecode programs. The authors, however, only worked with a subset of the EVM's semantics, and bytecode verification is unpractical for large or complex contracts. Furthermore, the author identified several limitations with the F*/Vale framework itself, including a restrictive type system, slow verification speed and lack of support and documentation.
+- , and bytecode verification is unpractical for large or complex contracts. Furthermore, the author identified several limitations with the F*/Vale framework itself, including a restrictive type system, slow verification speed and lack of support and documentation.
 
 While there have been a number of 
 > Vyper's main competitors are other EVM smart contract programming languages such as Solidity, Yul, Fe, and Edge. Vyper differs by its focus on readability, security and simplicity:
