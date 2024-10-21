@@ -76,9 +76,13 @@
 
 *What is the specific problems, research questions, or needs you are trying to address?*
 
-> - ???
-> - ???
-> - ???
+> - **Smart contract security:** Over 8 billion dollars have been lost in various hacks (https://defillama.com/hacks) since the launch of Ethereum. By enabling mathematical proofs of contract behavior, Verifereum offers a higher level of security against exploits.
+> 
+> - **Compiler reliability:** There are currently no formally verified compilers for EVM smart contract programming languages, meaning that there is no fully reliable guarantee that the compiled bytecode will behave as expected from the contract's source code. Verifereum aims to solve this, starting with a verification of the Vyper compiler.
+>   
+> - **Advancing formal verification on Ethereum:** Verifereum's use of higher order logic also provides higher reliability and expressivity compared to currently available frameworks based on first-order logic.
+>
+> - **Limited adoption of formal methods:** Verifereum aims to build a community and provide high quality documentation and educational resources to onboard more web3 developers to formal verification while bringing formal verification experts to web3.
 
 
 ### Proposed tasks, roadmap and budget?*
@@ -138,15 +142,15 @@
 > These approaches, however, all have their own limitations which Verifereum aims to overcome while offering a unique new contributions. 
 The main points on which Verifereum differentiates itself from existing solutions are:
 > 
-> - Reliability: Verifereum uses HOL4 which is demonstrably more trustworthy than the frameworks used by currently available projects such as K, Dafny or Vale. HOL4 has been formally proven sound (https://www.cl.cam.ac.uk/~jrh13/papers/holhol.html, https://www.cst.cam.ac.uk/news/ramana-kumar-wins-acm-sigplan-doctoral-dissertation-award) and its trusted code base (the "kernel") is both extremely small and extensively reviewed. Furthermore, HOL4 can produce independently checkable proofs (in OpenTheory format).
->   
-> - Expressivity: Unlike K or Dafny which are based in first-order logic, HOL4 is based on higher order logic whose semantics are much more expressive (https://philpapers.org/rec/FARTSV). This allows for more complex and comprehensive proofs, beyond simple assertions about a contract's expected behavior.
-> 
-> - Depth: Because of the above, HOL4 can be used to prove arbitrarily complex functional correctness properties.
-> 
-> - Compiler verification: All current models target post-compilation bytecode rather than compilers. And while there have been a few attempts to formalize the semantics of Solidity (https://doi.org/10.1007/978-3-030-92124-8_23, . https://doi.org/10.1007/978-3-030-03592-1_13), the work remains lacunary. By contrast, Verifereum aims to be a framework with which both compilers and compiled code can be verified, leveraging the experience, community and knowledge gained from building CakeML, a fully verified compiler for the ML programming language. The first project built on Verifereum is a verified version of the Vyper compiler, with the view to support additional languages in the future.
+> - **Compiler verification:** All current models target post-compilation bytecode rather than compilers. And while there have been a few attempts to formalize the semantics of Solidity (https://doi.org/10.1007/978-3-030-92124-8_23, . https://doi.org/10.1007/978-3-030-03592-1_13), the work remains lacunary. By contrast, Verifereum aims to be a framework with which both compilers and compiled code can be verified, leveraging the experience, community and knowledge gained from building CakeML, a fully verified compiler for the ML programming language. The first project built on Verifereum is a verified version of the Vyper compiler, with the view to support additional languages in the future.
 >
-> - Decompilation into logic: Verifereum will offer tooling to automatically decompile EVM bytecode programs, regardless of their original high level language, into logic to facilitate and automate verification (https://www.cl.cam.ac.uk/~mom22/decompilation/)
+> - **Decompilation into logic:** Verifereum will offer tooling to automatically decompile EVM bytecode programs, regardless of their original high level language, into logic to facilitate and automate verification (https://www.cl.cam.ac.uk/~mom22/decompilation/). There is currently nothing similar available for Ethereum applications.
+> 
+> - **Reliability:** Verifereum uses HOL4 which is demonstrably more trustworthy than the frameworks used by currently available projects such as K, Dafny or Vale. HOL4 has been formally proven sound (https://www.cl.cam.ac.uk/~jrh13/papers/holhol.html, https://www.cst.cam.ac.uk/news/ramana-kumar-wins-acm-sigplan-doctoral-dissertation-award) and its trusted code base (the "kernel") is both extremely small and extensively reviewed. Furthermore, HOL4 can produce independently checkable proofs (in OpenTheory format).
+>   
+> - **Expressivity:** Unlike K or Dafny which are based in first-order logic, HOL4 is based on higher order logic whose semantics are much more expressive (https://philpapers.org/rec/FARTSV). This allows for more complex and comprehensive proofs, beyond simple assertions about a contract's expected behavior.
+> 
+> - **Depth:** Because of the above, HOL4 can be used to prove arbitrarily complex functional correctness properties.
 
 
 
@@ -168,20 +172,22 @@ The main points on which Verifereum differentiates itself from existing solution
 
 *Please list the expected results of the project and explain how they will have a positive effect on the Ethereum ecosystem at large.*
 
-> - **Improve security:** By offering an alternative to Solidity's current monopoly, Vyper reduces the systemic risk associated with relying on a single language and provides developers with more options tailored to their needs and expertise.
-> - **:** Vyper's design principles prioritize security and audibility. Vyper is well integrated with security analysis tools like Slither and Echidna and offers automated fuzzing via Titanoboa, making it easier for developers to create and verify secure smart contracts.
-> - **Increase Ethereum's developer base:** Vyper's pythonic syntax lowers the entry barrier for web2 developers familiar with Python, potentially attracting a new cohort of developers to Ethereum. Vyper implements all of the main features that developers expect from a smart contract programming language, while tools like Titanoboa and Gaboon offer fast testing and debugging capacities, further enhancing developer experience and making Ethereum development more accessible.
-> - **An alternative intermediate representation (IR) to Yul for future EVM languages:** Venom, Vyper's intermediate representation, could serve as an alternative to Yul for future smart contract languages, further fostering innovation and diversity in Ethereum's language ecosystem. 
+> - **Smart contract security:** Verifereum will enable developers to mathematically prove that their smart contracts are exempt of all exploits of a certain type. This will, in turn, enhance the overall trust in Ethereum as a platform.
+> - **Compiler reliability:** The Ethereum ecosystem, with its reliance on a couple of languages with no verified compilers, is particularly vulnerable to compiler bugs. By focusing on compiler verification, starting with Vyper, Verifereum will increase confidence in the correctness of compiled smart contract code.
+> - **Advancement of formal methods:** Verifereum will push forward the state-of-the-art in formal verification on Ethereum and providing a more expressive and trustworthy framework for developers to work with.
+> - **Community building and education:** Drawing upon the experience and network acquired while building the CakeML community, Verifereum will help grow the pool of developers skilled in formal verification methods. We plan to do so by onboarding technical and non-technical contributors, providing documentation and tutorials and organizing outreach events. 
 
 ### Describe key risks and challenges to your project.*
 
 *What are the critical risks, relating to both project implementation and achieving expected impacts?*
 
-> One of the main risks and challenges facing Vyper today is ensuring sustainable funding to grow a dedicated core team of high quality developers over the long term. Vyper relies solely on grants whose outcomes are not easily predictable and development can be stalled due to lack of funding.
-> 
-> Adoption also remains a key challenge. While Vyper has seen increased interest, it still lags behind Solidity in terms of developer mindshare and ecosystem support. Convincing developers to switch or learn a new language can be difficult, even with Vyper's advantages and more outreach and community building efforts are needed to onboard the next generation of web3 devs to Vyper.
-> 
-> Lastly, there are risks inherent to maintaining a rapid pace of development in the highly adversarial context of smart contracts. As the language and its ecosystem grow, thorough auditing and testing become increasingly complex, costly and time-consuming.
+> The main challenges we foresee for Verifereum are:
+>
+> - **Funding sustainability:** Verifereum aims to be a public good and will need to rely on grant funding in the short term until the product is more mature. There are, however, a number of ways in which Verifereum can be monetized in the future to ensure the long-term sustainability of the platform.
+>   
+> - **Maintenance:** Both the EVM and its most popular languages are regularly updated, which means that our formal models will likewise have to be regularly updated to remain relevant. This process could be labor intensive but can be mitigated by building an active community of contributors and good relationships with compiler developers. For instance, since a formal verification of a compiler provides a significant value add, the compiler team themselves could become directly involved in the maintenance process.
+>   
+> - **Complexity as an adoption barrier:** Formal verification is inherently complex even for seasoned developers and this may hinder adoption. This is why Verifereum puts a strong emphasis on documentation, education and community building. Furthermore, the security benefits of formal methods also create a strong incentives for developers to become more familiar with them.
 
 
 ### What are your plans after the grant is completed?*
