@@ -62,7 +62,7 @@
 
 *Describe your project in a few sentences (you'll have the chance to go into more detail in the long form). If it's already underway, provide links to any existing published work.*
 
-> Verifereum is a formal model of Ethereum implemented in higher-order logic (HOL4). The project aims to enable the verification of applications and tools within the Ethereum ecosystem, from smart contracts to compilers. Verifereum does not target any specific set of smart contracts or programming languages but is meant to be a general framework for formal verification in the Ethereum space. One of the first projects built on Verifereum will be a verification of the Vyper compiler as its clean design and semantics make it a prime candidate for formal modeling.
+> Verifereum is a formal model of Ethereum implemented in higher-order logic (HOL4). The project aims to enable the verification of applications and tools within the Ethereum ecosystem, from smart contracts to compilers. Verifereum does not target any specific set of smart contracts or programming languages but is meant to be a general framework for formal verification in the Ethereum space. One of the first projects built on Verifereum will be a formal specification of the Vyper language as its clean design and semantics make it a prime candidate for formal modeling. 
 
 
 ### Describe the current status of the project and progress achieved so far*
@@ -216,15 +216,17 @@ The main points on which Verifereum differentiates itself from existing solution
 
 *Where are you located, or where is your team located?*
 
+> London
+
 ### Country*
 
-> United States
+> United Kingdom
 
 ### Your time zone*
 
 *Please choose your current time zone to help us schedule calls.*
 
-> $\Huge{\color{red}{\textbf{For Ramana to fill out}}}$
+> UTC
 
 ### How did you hear about the Ecosystem Support Program?*
 
