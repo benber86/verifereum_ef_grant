@@ -62,7 +62,7 @@
 
 *Describe your project in a few sentences (you'll have the chance to go into more detail in the long form). If it's already underway, provide links to any existing published work.*
 
-> Verifereum is a formal model of Ethereum implemented in higher-order logic (HOL4). For the scope of this grant, we will plan to establish a formal specification for a subset of Vyper, specifically a definitional interpreter defined in logic that excludes EVM state operations. We chose Vyper language as its clean design and semantics make it a prime candidate for formal modeling and we plan to eventually expand our work to the whole language and the compiler. 
+> Verifereum is a formal model of Ethereum implemented in higher-order logic (HOL4). For the scope of this grant, we plan to establish a formal specification for a subset of the Vyper programming language (https://github.com/vyperlang/vyper). Specifically a definitional interpreter defined in logic that excludes EVM state operations. We chose Vyper language as its clean design and semantics make it a prime candidate for formal modeling and we plan to eventually expand our work to the whole language and the compiler. 
 > In the long term, the project aims to enable the verification of applications and tools within the Ethereum ecosystem, from smart contracts to compilers. Verifereum would not target any specific set of smart contracts or programming languages but is meant to be a general framework for formal verification in the Ethereum space. 
 
 
