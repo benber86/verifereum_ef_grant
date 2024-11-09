@@ -11,7 +11,7 @@
 
 ### Email*
 
-> $\Huge{\color{red}{\textbf{For Ramana to fill out}}}$
+> ramana@member.fsf.org
 
 
 ### Organization name*
@@ -62,14 +62,15 @@
 
 *Describe your project in a few sentences (you'll have the chance to go into more detail in the long form). If it's already underway, provide links to any existing published work.*
 
-> Verifereum is a formal model of Ethereum implemented in higher-order logic (HOL4). The project aims to enable the verification of applications and tools within the Ethereum ecosystem, from smart contracts to compilers. Verifereum does not target any specific set of smart contracts or programming languages but is meant to be a general framework for formal verification in the Ethereum space. One of the first projects built on Verifereum will be a formal specification of the Vyper language as its clean design and semantics make it a prime candidate for formal modeling. 
+> Verifereum is a formal model of Ethereum implemented in higher-order logic (HOL4). For the scope of this grant, we will plan to establish a formal specification for a subset of Vyper, specifically a definitional interpreter defined in logic that excludes EVM state operations. We chose Vyper language as its clean design and semantics make it a prime candidate for formal modeling and we plan to eventually expand our work to the whole language and the compiler. 
+> In the long term, the project aims to enable the verification of applications and tools within the Ethereum ecosystem, from smart contracts to compilers. Verifereum would not target any specific set of smart contracts or programming languages but is meant to be a general framework for formal verification in the Ethereum space. 
 
 
 ### Describe the current status of the project and progress achieved so far*
 
 *For example, do you have an MVP? Please describe its functionality and limitations and provide a link to it here.*
 
-> Verifereum already has a basic formal model of the EVM in HOL4, available at https://github.com/verifereum/verifereum. While not fully complete, the model is executable $\color{red}{\textbf{(is it already?)}}$ and currently passes some $\color{red}{\textbf{(proportion?)}}$ tests from the Ethereum Test Set (https://github.com/ethereum/tests). Work towards a definitional interpreter targeting the Vyper compiler has also started by formalizing the language's Abstract Syntax Tree (AST) at https://github.com/xrchz/vyper-hol/tree/main. The current formalization is still at an early stage but covers basic types, expressions, and control flow constructs.
+> Verifereum already has a basic formal model of the EVM in HOL4, available at https://github.com/verifereum/verifereum. While not fully complete, the model is executable and currently passes some tests from the Ethereum Test Set (https://github.com/ethereum/tests). All opcodes are currently implemented and we have started working on implementing the precompiles. Work towards a definitional interpreter targeting the Vyper compiler has also started by formalizing the language's Abstract Syntax Tree (AST) at https://github.com/xrchz/vyper-hol/tree/main. The current formalization is still at an early stage but covers basic types, expressions, and control flow constructs.
 
 
 ### What problem(s) are being solved by within the scope of the grant?*
@@ -91,21 +92,21 @@
 
 > ####  Roadmap:
 >
-> The grant is to fund payroll expenses for $\color{red}{\textbf{(what would be a reasonable timeline?)}}$ .
+> The grant is to fund payroll expenses for the following work.
 > 
-> - **Base Formal Specification of the EVM (x months)**:
->   - Draw up an executable formal specification of the EVM in HOL4 
+> - **Formal Specification of a Subset of the Vyper Language (2 months)**:
+>   - Develop a definitional interpreter in logic for a subset of the Vyper AST (excluding elements that involve EVM state).
+>   - Test the model against the some of the tests developed for the Ivy Vyper AST interpreter (https://github.com/cyberthirst/ivy)
+> - **Base Formal Specification of the EVM (1 month)**:
+>   - Continue developing our formal specification of the EVM in HOL4 to the extent necessary to support the work on the Vyper definition
 >   - Optimize the model for faster execution
->   - Ensure that the model passes all of the tests in the Ethereum Test Set (https://github.com/ethereum/tests/)
-> - **Formal Specification of the Vyper Compiler**:
->   - Draw up a full formal specification of the Vyper AST
->   - Extend the tests for the Ivy Vyper AST interpreter (https://github.com/cyberthirst/ivy) and ensure the model passes them 
+>   - Test the model against some of the tests in the Ethereum Test Set (https://github.com/ethereum/tests/)
 >
 > #### Estimated budget:
 > 
 > |  Item                  | Timeline | Amount       | Description                            |
 > |------------------------|----------------------------------------|--------------|--------------|
-> | _Developer Salaries_  | X |  $50,000       | xxx |
+> | _Developer Salaries_  | 3 months |  $50,000       |   Vyper definitional interpreter + minimal EVM model |
 > 
 > 
 
@@ -192,12 +193,12 @@ The main points on which Verifereum differentiates itself from existing solution
 
 ### What are your plans after the grant is completed?*
 
-> $\Huge{\color{red}{\textbf{For Ramana to fill out}}}$
+> We plan on continuing our work on Vyper to expand the definitional interpreter to the whole language, eventually passing the full Ivy test suite. We will then begin work on a formal definition of a Vyper compiler front end, with the long term goal of offering a full formal verification of the compiler. We will also work on completing our EVM model and making sure it passes the whole Ethereum test suite (https://github.com/ethereum/tests?tab=readme-ov-file) 
 
 
 ### If you didn't work on this project, what would you work on instead?*
 
-> $\Huge{\color{red}{\textbf{For Ramana to fill out}}}$
+> If I didn't have support (both collaborators and funding) for Verifereum, I would reconsider my priorities and fall back to other activities including those related to Ethereum staking (e.g. Rocket Pool node operation and community support, non-custodial staking-as-a-service) and those outside of the ecosystem altogether (e.g. activism).
 
 ### Have you previously applied to ESP with this same idea or project?*
 
@@ -210,7 +211,7 @@ The main points on which Verifereum differentiates itself from existing solution
 ### Anything else you'd like to share?
 
 
-> $\Huge{\color{red}{\textbf{For Ramana to fill out}}}$
+> No
 
 ### City
 
