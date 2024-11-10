@@ -104,9 +104,9 @@
 >
 > #### Estimated budget:
 > 
-> |  Item                  | Timeline | Amount       | Description                            |
-> |------------------------|----------------------------------------|--------------|--------------|
-> | _Developer Salaries_  | 3 months |  $50,000       |   Vyper definitional interpreter + minimal EVM model |
+> |  Item                  | Timeline | Amount       | Description                                        |
+> |------------------------|----------|--------------|----------------------------------------------------|
+  > | _Developer Salaries_   | 3 months | $50,000      | Vyper definitional interpreter + minimal EVM model |
 > 
 > 
 
@@ -136,23 +136,21 @@
 
 *What other solutions are being worked on, what unique contribution will you make or advance will you provide beyond the state of the art?*
 
-> There are many tools available to help Ethereum smart contract developers improve the security of their code. Tools for static analysis, fuzzing, or mutation testing all provide additional assurance against bugs and vulnerabilities, but not at the level provided by formal verification. On the other hand, formal verification is more complex, labor-intensive, and has comparatively less smart-contract specific tooling. There are verification tools such as Solidity's SMTChecker (https://docs.soliditylang.org/en/latest/smtchecker.html), solc-verify (https://github.com/SRI-CSL/solidity) or VeriSol (https://github.com/microsoft/verisol). But they work directly on a high-level programming language and do not offer security guarantees against bugs introduced by the compiler. For a contract's binary to be formally verified, either its language's compiler itself must be formalized or the post-compilation binaries must be verified against an EVM specification.
+> There are many tools to improve smart contract security (static analysis, fuzzing...). They provide assurance against bugs, but not at the level of formal verification. Formal verification tools like Solidity's SMTChecker work on a high-level language and do not protect against bugs introduced by the compiler. For a contract's binary to be formally verified, its language's compiler itself must be formalized or the compiled binaries must be verified against an EVM specification.
+> 
+> Formal verification efforts so far, like KEVM or EVM-Dafny, have targeted the latter option. Likewise, the more recent EVM-Vale model in F*/Vale which only handled a subset of the EVM's semantics. Earlier projects gave formal specifications in Isabelle/HOL and CoQ but are not actively used. Work on a Lean model is underway (https://tinyurl.com/drtap9az) but does not fully pass the Ethereum Test Set.
 >
-> Most formal verification efforts so far have targeted the latter option. KEVM (https://ieeexplore.ieee.org/document/8429306) by Runtime Verification and EVM-Dafny (https://github.com/Consensys/evm-dafny) by Consensys have been under development since 2018 and 2022 respectively and are currently the most widely used frameworks. Both provide executable formal specifications of the EVM that can be used to formally verify contracts at the bytecode level. More recently, EVM-Vale (https://link.springer.com/chapter/10.1007/978-981-97-0006-6_3) offered a formal model of the EVM in F*/Vale which could be used to verify bytecode programs. The authors, however, only worked with a subset of the EVM's semantics. Earlier projects tried to give formal specifications in Isabelle/HOL (https://github.com/pirapira/ethereum-formal-verification-overview) and CoQ (https://arxiv.org/abs/1810.04828) but are not actively used or maintained. Work on a Lean model is underway (https://github.com/NethermindEth/EVMYulLean) but remains in infancy and does not fully pass the Ethereum Test Set. 
+> Verifereum solves these approaches' limitations and adds new contributions
 > 
-> These approaches, however, all have their own limitations which Verifereum aims to overcome while offering unique new contributions. 
-The main points on which Verifereum differentiates itself from existing solutions are:
-> 
-> - **Compiler verification:** All current models target post-compilation bytecode rather than compilers. And while there have been a few attempts to formalize the semantics of Solidity (https://doi.org/10.1007/978-3-030-92124-8_23, https://doi.org/10.1007/978-3-030-03592-1_13), the work remains lacunary. By contrast, Verifereum aims to be a framework with which both compilers and compiled code can be verified, leveraging the experience, community, and knowledge gained from building CakeML, a fully verified compiler for the ML programming language. The first project built on Verifereum is a verified version of the Vyper compiler, with the view to support additional languages in the future.
+> - Compiler verification: Current models target compiled bytecode rather than compilers. By contrast, Verifereum can verify both compilers and compiled code. One of our goals is to fully verify the Vyper compiler.
 >
-> - **Decompilation into logic:** Verifereum will offer tooling to automatically decompile EVM bytecode programs, regardless of their original high-level language, into logic to facilitate and automate verification (https://www.cl.cam.ac.uk/~mom22/decompilation/). There is currently nothing similar available for Ethereum applications.
+> - Decompilation into logic: Verifereum will offer tooling to decompile EVM bytecode programs into logic, regardless of their original language, to automate verification (https://tinyurl.com/3zbyzpk2). There is nothing similar available for Ethereum applications yet.
+>
+> - Reliability: Verifereum uses HOL4 which is more trustworthy than the frameworks used by other projects such as K, Dafny, or Vale. HOL4 has been formally proven sound (https://tinyurl.com/mxjb63v3). Its trusted code base is small and extensively reviewed.
 > 
-> - **Reliability:** Verifereum uses HOL4 which is demonstrably more trustworthy than the frameworks used by currently available projects such as K, Dafny, or Vale. HOL4 has been formally proven sound (https://www.cl.cam.ac.uk/~jrh13/papers/holhol.html, https://www.cst.cam.ac.uk/news/ramana-kumar-wins-acm-sigplan-doctoral-dissertation-award) and its trusted code base (the "kernel") is both extremely small and extensively reviewed. Furthermore, HOL4 can produce independently checkable proofs (in OpenTheory format).
->   
-> - **Expressivity:** Unlike K or Dafny which are based on first-order logic, HOL4 is based on higher-order logic whose semantics are much more expressive (https://philpapers.org/rec/FARTSV). This allows for more complex and comprehensive proofs, beyond simple assertions about a contract's expected behavior.
-> 
-> - **Depth:** Because of the above, HOL4 can be used to prove arbitrarily complex functional correctness properties.
-
+> - Expressivity: Unlike K or Dafny which are based on first-order logic, HOL4 is based on higher-order logic which has more expressive semantics (https://philpapers.org/rec/FARTSV), allowing for more complex proofs.
+>
+> - Depth: HOL4 can be used to prove arbitrarily complex functional correctness properties.
 
 
 ### Describe how your project will result in a public good.*
